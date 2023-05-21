@@ -6,6 +6,7 @@
     "build": "npm i",
     "test": "jest",
     "lint": "eslint .",
+    "assets": "react-native-asset",
     "start": "react-native start --reset-cache",
     "watch": "npm run build && watchman watch-del-all && watchman watch-project",
     "postinstall": "bundler install && cd ios && bundle install && bundle exec pod install --repo-update && cd ../",
@@ -21,7 +22,6 @@
     "clean-ios": "watchman watch-del-all && rm -rf ~/Library/Developer/Xcode/DerivedData ios/build",
     "bundle-ios": "react-native bundle --entry-file index.js --platform ios --dev false --bundle-output ios/main.jsbundle --assets-dest ios",
     "debug-build": "cd android && gradlew.bat bundleDebug && gradlew.bat assembleDebug && gradlew.bat assembleDebug && cd ../",
-    "release": "react-native-asset && npm run android-release",
     "android-release": "cd android && gradlew.bat bundleRelease && gradlew.bat assembleRelease && cd ../",
     "ios-release": "echo make an archive with the desired target",
     "list-gradle-deps": "cd android && gradlew :app:dependencies > gradle-dependencies.txt",
@@ -31,6 +31,7 @@
   "dependencies": {
     "react": "18.2.0",
     "react-native": "0.71.8",
+    "react-native-document-picker": "^9.0.1",
     "react-native-pspdfkit": "github:PSPDFKit/react-native"
   },
   "devDependencies": {
@@ -38,7 +39,8 @@
     "@babel/preset-env": "^7.20.0",
     "@babel/runtime": "^7.20.0",
     "@react-native-community/eslint-config": "^3.2.0",
-    "metro-react-native-babel-preset": "0.73.9"
+    "metro-react-native-babel-preset": "0.73.9",
+    "react-native-asset": "^2.1.1"
   },
   "jest": {
     "preset": "react-native"
