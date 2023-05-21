@@ -1,0 +1,46 @@
+{
+  "name": "PSPDFKIT_DEMO",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "build": "npm i",
+    "test": "jest",
+    "lint": "eslint .",
+    "start": "react-native start --reset-cache",
+    "watch": "npm run build && watchman watch-del-all && watchman watch-project",
+    "postinstall": "bundler install && cd ios && bundle install && bundle exec pod install --repo-update && cd ../",
+    "android": "react-native run-android",
+    "android-prod": "react-native run-android --mode release",
+    "ios": "react-native run-ios --simulator='iPad Pro (12.9-inch) (4th generation)'",
+    "ios-prod": "react-native run-ios --simulator='iPad Pro (12.9-inch) (4th generation)' --configuration Release",
+    "macos": "react-native run-macos",
+    "windows": "react-native run-windows",
+    "clean-npm": "npm cache clean --force && rm -rf package-lock.json node_modules && npm run clean-coco",
+    "clean-coco": "rm -rf ~/Library/Caches/CocoaPods ios/Pods ios/Podfile.lock ./Gemfile.lock",
+    "clean-android": "watchman watch-del-all && cd android && gradlew.bat clean && cd../ && rm -rf android/app/build",
+    "clean-ios": "watchman watch-del-all && rm -rf ~/Library/Developer/Xcode/DerivedData ios/build",
+    "bundle-ios": "react-native bundle --entry-file index.js --platform ios --dev false --bundle-output ios/main.jsbundle --assets-dest ios",
+    "debug-build": "cd android && gradlew.bat bundleDebug && gradlew.bat assembleDebug && gradlew.bat assembleDebug && cd ../",
+    "release": "react-native-asset && npm run android-release",
+    "android-release": "cd android && gradlew.bat bundleRelease && gradlew.bat assembleRelease && cd ../",
+    "ios-release": "echo make an archive with the desired target",
+    "list-gradle-deps": "cd android && gradlew :app:dependencies > gradle-dependencies.txt",
+    "check-android-certs": "cd android && apksigner verify --print-certs app/build/outputs/apk/release/app-release.apk && cd../",
+    "clear-branches": "git branch | grep -v 'develop' | grep -v 'master' | grep -v 'main' | xargs git branch -D"
+  },
+  "dependencies": {
+    "react": "18.2.0",
+    "react-native": "0.71.8",
+    "react-native-pspdfkit": "github:PSPDFKit/react-native"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.20.0",
+    "@babel/preset-env": "^7.20.0",
+    "@babel/runtime": "^7.20.0",
+    "@react-native-community/eslint-config": "^3.2.0",
+    "metro-react-native-babel-preset": "0.73.9"
+  },
+  "jest": {
+    "preset": "react-native"
+  }
+}
