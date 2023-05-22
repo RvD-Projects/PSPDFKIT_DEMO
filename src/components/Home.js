@@ -8,12 +8,12 @@ import DocumentPicker, {
   isCancel,
   isInProgress,
 } from "react-native-document-picker";
-import { Colors } from "../styles/theme";
+import { Colors, Theme } from "../styles/theme";
 
 const uris = [
   "file:///android_asset/documents/demo.pdf",
   "file:///android_asset/images/demo.jpg",
-  "file:///android_asset/images/demo-png.jpg",
+  "file:///android_asset/images/demo-png.png",
 ];
 
 const Home = (props) => {
@@ -42,20 +42,22 @@ const Home = (props) => {
       });
       setSelectedFile([pickerResult]);
       setSelectedUri(pickerResult.fileCopyUri);
+      onClick(selectedUri);
     } catch (e) {
       handleError(e);
     }
   }
 
-  useEffect(() => {
-    selectedUri && navigation.navigate("Viewer", { selectedUri });
-  }, [selectedUri]);
+  function onClick(selectedUri) {
+    setSelectedUri(selectedUri);
+    navigation.navigate("Viewer", { selectedUri });
+  }
 
   return (
     <ScrollView style={styles.marginedView}>
       <TouchableOpacity
         style={styles.appPressable}
-        onPress={() => setSelectedUri(uris[0])}
+        onPress={() => onClick(uris[0])}
       >
         <Image
           source={{ uri: "asset:/images/demo-pdf.jpg" }}
@@ -65,7 +67,7 @@ const Home = (props) => {
 
       <TouchableOpacity
         style={styles.appPressable}
-        onPress={() => setSelectedUri(uris[1])}
+        onPress={() => onClick(uris[1])}
       >
         <Image
           source={{ uri: "asset:/images/demo.jpg" }}
@@ -75,7 +77,7 @@ const Home = (props) => {
 
       <TouchableOpacity
         style={styles.appPressable}
-        onPress={() => setSelectedUri(uris[2])}
+        onPress={() => onClick(uris[2])}
       >
         <Image
           source={{ uri: "asset:/images/demo-png.jpg" }}
@@ -91,10 +93,10 @@ const Home = (props) => {
 
       <View style={styles.appButtonContainer}>
         <TouchableOpacity
-          onPress={() => navigation.navigate("Viewer")}
+          onPress={onClick}
           style={styles.appButton}
         >
-          <Text style={styles.appButtonText}>Go to Viewer</Text>
+          <Text style={styles.appButtonText}>Reset to sample</Text>
         </TouchableOpacity>
       </View>
     </ScrollView>
@@ -102,34 +104,7 @@ const Home = (props) => {
 };
 
 const styles = StyleSheet.create({
-  marginedView: {
-    marginVertical: 12,
-    paddingHorizontal: 12,
-  },
-  appPressable: {
-    elevation: 6,
-    marginBottom: 10,
-    borderWidth: 2,
-    borderColor: Colors.black,
-    backgroundColor: Colors.secondary,
-  },
-  appButtonContainer: {
-    elevation: 6,
-    marginBottom: 10,
-    backgroundColor: Colors.primary,
-  },
-  appButton: {
-    borderWidth: 1,
-    borderColor: Colors.black,
-  },
-  appButtonText: {
-    fontSize: 16,
-    color: "#000",
-    fontWeight: "bold",
-    alignSelf: "center",
-    textTransform: "uppercase",
-    padding: 10,
-  },
+  ...Theme,
 });
 
 export default connect(null)(Home);

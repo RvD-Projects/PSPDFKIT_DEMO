@@ -18,4 +18,44 @@ export const Theme = {
   centered: {
     alignItems: "center",
   },
+  marginedView: {
+    marginVertical: 12,
+    paddingHorizontal: 12,
+  },
+  appPressable: {
+    elevation: 6,
+    marginBottom: 10,
+    borderWidth: 2,
+    borderColor: Colors.black,
+    backgroundColor: Colors.secondary,
+  },
+  appButtonContainer: {
+    elevation: 6,
+    marginBottom: 10,
+    backgroundColor: Colors.primary,
+  },
+  appButton: {
+    borderWidth: 1,
+    borderColor: Colors.black,
+  },
+  appButtonText: {
+    fontSize: 16,
+    color: "#000",
+    fontWeight: "bold",
+    alignSelf: "center",
+    textTransform: "uppercase",
+    padding: 10,
+  },
+  viewContainer: {
+    marginVertical: 12,
+    flex: 1,
+  },
+  title: {
+    padding: 4,
+    margin: 4,
+    flexDirection: "row",
+  },
+  label: {
+    fontWeight: "bold",
+  },
 };
