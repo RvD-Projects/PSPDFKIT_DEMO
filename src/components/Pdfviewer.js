@@ -1,19 +1,14 @@
-import React, { createRef, useState, useEffect } from "react";
+import React, { createRef, useState, useEffect, useRef } from "react";
 import PSPDFKitView from "react-native-pspdfkit";
 import { useNavigation } from "@react-navigation/native";
+import { connect } from "react-redux";
 
-function Pdfviewer() {
+function Pdfviewer(props) {
+  const { selectedUri } = props;
+
+  const defaultUri = "file:///android_asset/documents/sample.pdf";
   const navigation = useNavigation();
-  const viewerRef = createRef(null);
-
-  const [selectedUri, setSelectedUri] = useState(
-    "file:///android_asset/documents/demo.pdf"
-  );
-
-  useEffect(() => {
-    const uriFromNav = navigation.getState().routes[0].params.selectedUri;
-    setSelectedUri(uriFromNav);
-  }, []);
+  const viewerRef = useRef();
 
   onViewerStateChange = (e) => {
     console.warn("PSPDFKIT: State changed");
@@ -44,7 +39,7 @@ function Pdfviewer() {
     <PSPDFKitView
       ref={viewerRef}
       fragmentTag="PDF1"
-      document={selectedUri}
+      document={selectedUri ?? defaultUri}
       configuration={{
         showThumbnailBar: "scrollable",
         pageTransition: "scrollContinuous",
@@ -60,4 +55,8 @@ function Pdfviewer() {
   );
 }
 
-export default Pdfviewer;
+const mapStateToProps = (state, props) => {
+  return { selectedUri: props.route.params?.selectedUri };
+};
+
+export default connect(mapStateToProps)(Pdfviewer);
