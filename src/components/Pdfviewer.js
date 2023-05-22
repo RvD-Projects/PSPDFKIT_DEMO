@@ -1,4 +1,4 @@
-import React, { createRef, useState, useEffect, useRef } from "react";
+import React, { createRef } from "react";
 import PSPDFKitView from "react-native-pspdfkit";
 import { useNavigation } from "@react-navigation/native";
 import { connect } from "react-redux";
@@ -8,7 +8,7 @@ function Pdfviewer(props) {
 
   const defaultUri = "file:///android_asset/documents/sample.pdf";
   const navigation = useNavigation();
-  const viewerRef = useRef();
+  const viewerRef = createRef();
 
   onViewerStateChange = (e) => {
     console.info("PSPDFKIT: State changed");
@@ -34,6 +34,10 @@ function Pdfviewer(props) {
     console.info("PSPDFKIT: Data returned");
     console.log(e);
   };
+
+  props.navigation.getParent().setOptions({
+    title: "Viewer"
+  });
 
   return (
     <PSPDFKitView

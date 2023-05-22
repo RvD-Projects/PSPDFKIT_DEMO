@@ -83,18 +83,20 @@ const Home = (props) => {
         />
       </TouchableOpacity>
 
-      <View style={[styles.appButtonContainer, {marginTop:32}]}>
+      <View style={[styles.appButtonContainer, { marginTop: 32 }]}>
         <TouchableOpacity onPress={selectFile} style={styles.appButton}>
           <Text style={styles.appButtonText}>Choose my own file</Text>
         </TouchableOpacity>
       </View>
 
       <View style={styles.appButtonContainer}>
-        <TouchableOpacity onPress={() => navigation.navigate('Viewer')} style={styles.appButton}>
+        <TouchableOpacity
+          onPress={() => navigation.navigate("Viewer")}
+          style={styles.appButton}
+        >
           <Text style={styles.appButtonText}>Go to Viewer</Text>
         </TouchableOpacity>
       </View>
-
     </ScrollView>
   );
 };
@@ -102,19 +104,19 @@ const Home = (props) => {
 const styles = StyleSheet.create({
   marginedView: {
     marginVertical: 12,
-    paddingHorizontal: 12
+    paddingHorizontal: 12,
   },
   appPressable: {
     elevation: 6,
     marginBottom: 10,
     borderWidth: 2,
     borderColor: Colors.black,
-    backgroundColor: Colors.secondary
+    backgroundColor: Colors.secondary,
   },
   appButtonContainer: {
     elevation: 6,
     marginBottom: 10,
-    backgroundColor: Colors.primary
+    backgroundColor: Colors.primary,
   },
   appButton: {
     borderWidth: 1,
@@ -126,10 +128,8 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     alignSelf: "center",
     textTransform: "uppercase",
-    padding: 10
+    padding: 10,
   },
 });
 
-const mapDispatchToProps = {};
-
-export default connect(null, mapDispatchToProps)(Home);
+export default connect(null)(Home);
