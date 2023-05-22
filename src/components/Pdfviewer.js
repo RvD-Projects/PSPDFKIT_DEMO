@@ -11,27 +11,27 @@ function Pdfviewer(props) {
   const viewerRef = useRef();
 
   onViewerStateChange = (e) => {
-    console.warn("PSPDFKIT: State changed");
+    console.info("PSPDFKIT: State changed");
     console.log(e);
   };
 
   onViewerAnnotChange = (e) => {
-    console.warn("PSPDFKIT: Annot changed");
+    console.info("PSPDFKIT: Annot changed");
     console.log(e);
   };
 
   onViewerDocSave = (e) => {
-    console.warn("PSPDFKIT: Saved OK");
+    console.info("PSPDFKIT: Saved OK");
     console.log(e);
   };
 
   onViewerDocSaveFailed = (e) => {
-    console.warn("PSPDFKIT: Saved failed");
+    console.info("PSPDFKIT: Saved failed");
     console.log(e);
   };
 
   onViewerDataReturn = (e) => {
-    console.warn("PSPDFKIT: Data returned");
+    console.info("PSPDFKIT: Data returned");
     console.log(e);
   };
 
