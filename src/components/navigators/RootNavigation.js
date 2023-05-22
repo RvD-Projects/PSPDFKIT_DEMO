@@ -3,7 +3,7 @@ import { createStackNavigator } from "@react-navigation/stack";
 import { createDrawerNavigator } from "@react-navigation/drawer";
 import { createMaterialBottomTabNavigator } from "@react-navigation/material-bottom-tabs";
 
-import { Theme } from "../../styles/theme";
+import { Colors, Theme } from "../../styles/theme";
 import Home from "../Home";
 import { Icon } from "@rneui/themed";
 import Pdfviewer from "../Pdfviewer";
@@ -16,7 +16,7 @@ function HomeDrawer() {
   return (
     <Drawer.Navigator>
       <Drawer.Screen
-        options={{ title: "Home" }}
+        options={{ title: "Home", headerTitleStyle:{color: Colors.black} }}
         name="HomeTabs"
         component={HomeTabs}
       />
@@ -32,7 +32,12 @@ function HomeTabs() {
         component={Home}
         options={{
           tabBarIcon: ({ color }) => (
-            <Icon type="ant-design" name="home" size={24} color="#900" />
+            <Icon
+              type="ant-design"
+              name="home"
+              size={24}
+              color={Colors.primary}
+            />
           ),
         }}
       />
@@ -41,7 +46,12 @@ function HomeTabs() {
         component={Pdfviewer}
         options={{
           tabBarIcon: ({ color }) => (
-            <Icon type="font-awesome" name="file-pdf-o" size={24} color="#900" />
+            <Icon
+              type="font-awesome"
+              name="file-pdf-o"
+              size={24}
+              color={Colors.primary}
+            />
           ),
         }}
       />

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Image, StyleSheet, View, Text } from "react-native";
-import { TouchableOpacity } from "react-native-gesture-handler";
+import { ScrollView, TouchableOpacity } from "react-native-gesture-handler";
 import { useNavigation } from "@react-navigation/native";
 import { connect } from "react-redux";
 
@@ -8,6 +8,7 @@ import DocumentPicker, {
   isCancel,
   isInProgress,
 } from "react-native-document-picker";
+import { Colors } from "../styles/theme";
 
 const uris = [
   "file:///android_asset/documents/demo.pdf",
@@ -51,9 +52,9 @@ const Home = (props) => {
   }, [selectedUri]);
 
   return (
-    <View>
+    <ScrollView style={styles.marginedView}>
       <TouchableOpacity
-        style={{ marginBottom: 4 }}
+        style={styles.appPressable}
         onPress={() => setSelectedUri(uris[0])}
       >
         <Image
@@ -63,7 +64,7 @@ const Home = (props) => {
       </TouchableOpacity>
 
       <TouchableOpacity
-        style={{ marginVertical: 4 }}
+        style={styles.appPressable}
         onPress={() => setSelectedUri(uris[1])}
       >
         <Image
@@ -73,7 +74,7 @@ const Home = (props) => {
       </TouchableOpacity>
 
       <TouchableOpacity
-        style={{ marginVertical: 4 }}
+        style={styles.appPressable}
         onPress={() => setSelectedUri(uris[2])}
       >
         <Image
@@ -82,32 +83,50 @@ const Home = (props) => {
         />
       </TouchableOpacity>
 
-      <View style={styles.appButtonContainer}>
+      <View style={[styles.appButtonContainer, {marginTop:32}]}>
         <TouchableOpacity onPress={selectFile} style={styles.appButton}>
           <Text style={styles.appButtonText}>Choose my own file</Text>
         </TouchableOpacity>
       </View>
-    </View>
+
+      <View style={styles.appButtonContainer}>
+        <TouchableOpacity onPress={() => navigation.navigate('Viewer')} style={styles.appButton}>
+          <Text style={styles.appButtonText}>Go to Viewer</Text>
+        </TouchableOpacity>
+      </View>
+
+    </ScrollView>
   );
 };
 
 const styles = StyleSheet.create({
+  marginedView: {
+    marginVertical: 12,
+    paddingHorizontal: 12
+  },
+  appPressable: {
+    elevation: 6,
+    marginBottom: 10,
+    borderWidth: 2,
+    borderColor: Colors.black,
+    backgroundColor: Colors.secondary
+  },
   appButtonContainer: {
-    marginTop: 100,
-    marginVertical: 4,
+    elevation: 6,
+    marginBottom: 10,
+    backgroundColor: Colors.primary
   },
   appButton: {
-    elevation: 8,
-    backgroundColor: "#00C2CE",
-    paddingVertical: 10,
-    paddingHorizontal: 12,
+    borderWidth: 1,
+    borderColor: Colors.black,
   },
   appButtonText: {
-    fontSize: 18,
-    color: "#fff",
+    fontSize: 16,
+    color: "#000",
     fontWeight: "bold",
     alignSelf: "center",
     textTransform: "uppercase",
+    padding: 10
   },
 });
 

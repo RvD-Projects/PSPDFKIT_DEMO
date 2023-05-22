@@ -3,9 +3,9 @@ import { DefaultTheme } from "@react-navigation/native";
 export const Colors = {
   black: "rgb(0,0,0)",
   white: "rgb(255,255,255)",
-  primary: "rgb(255, 45, 85)",
-  secondary: "rgb(214, 19, 56)",
-  disabled: "rgb(214, 19, 56)",
+  primary: "#00C2CE",
+  secondary: "#00C2BE",
+  disabled: "#DDCE",
   background: "rgb(242, 242, 242)",
   card: "rgb(255, 255, 255)",
   border: "rgb(199, 199, 204)",
