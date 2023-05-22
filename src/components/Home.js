@@ -1,18 +1,22 @@
+import React, { useState, useEffect } from 'react';
 import { Image, StyleSheet, View, Text } from "react-native";
 import { TouchableOpacity } from "react-native-gesture-handler";
+import { useNavigation } from '@react-navigation/native';
 import { connect } from "react-redux";
 
 import DocumentPicker, {
   isCancel,
   isInProgress,
 } from "react-native-document-picker";
-import { useState } from "react";
 
 const uris = [
-
+  "file:///android_asset/documents/sample.pdf",
+  "file:///android_asset/images/demo.jpg",
+  "file:///android_asset/images/demo-png.jpg"
 ]
 
 const Home = (props) => {
+  const navigation = useNavigation();
   const [selectedFile, setSelectedFile] = useState(null);
   const [selectedUri, setSelectedUri] = useState(null);
 
@@ -36,10 +40,17 @@ const Home = (props) => {
         copyTo: "cachesDirectory",
       });
       setSelectedFile([pickerResult]);
+      setSelectedUri(pickerResult.fileCopyUri)
     } catch (e) {
       handleError(e);
     }
   }
+
+  useEffect(() => {
+    navigation.setParams({selectedUri});
+    selectedUri && navigation.navigate('Viewer');
+  }, [selectedUri])
+  
 
   return (
     <View>
@@ -50,14 +61,14 @@ const Home = (props) => {
         />
       </TouchableOpacity>
 
-      <TouchableOpacity style={{ marginVertical: 4 }} onPress={() => setSelectedUri(uris[0])}>
+      <TouchableOpacity style={{ marginVertical: 4 }} onPress={() => setSelectedUri(uris[1])}>
         <Image
           source={{ uri: "asset:/images/demo.jpg" }}
           style={{ width: "100%", height: 150 }}
         />
       </TouchableOpacity>
 
-      <TouchableOpacity style={{ marginVertical: 4 }} onPress={() => setSelectedUri(uris[0])}>
+      <TouchableOpacity style={{ marginVertical: 4 }} onPress={() => setSelectedUri(uris[2])}>
         <Image
           source={{ uri: "asset:/images/demo-png.jpg" }}
           style={{ width: "100%", height: 150 }}
@@ -74,7 +85,7 @@ const Home = (props) => {
 
 const styles = StyleSheet.create({
   appButtonContainer: {
-    marginTop: 140, 
+    marginTop: 100, 
     marginVertical: 4,
     elevation: 8,
     backgroundColor: "#00C2CE",
@@ -87,18 +98,7 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     alignSelf: "center",
     textTransform: "uppercase",
-  },
-  container: {
-    flex: 1,
-    alignItems: "center",
-    justifyContent: "center",
-    backgroundColor: "white",
-  },
-  box: {
-    width: 60,
-    height: 60,
-    marginVertical: 20,
-  },
+  }
 });
 
 const mapDispatchToProps = {};

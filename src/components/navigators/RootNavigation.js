@@ -6,7 +6,7 @@ import { createMaterialBottomTabNavigator } from "@react-navigation/material-bot
 import { Theme } from "../../styles/theme";
 import Home from "../Home";
 import { Icon } from "@rneui/themed";
-import Pdfviewer from "../Pdfviewer.js";
+import Pdfviewer from "../Pdfviewer";
 
 const Stack = createStackNavigator();
 const Drawer = createDrawerNavigator();
