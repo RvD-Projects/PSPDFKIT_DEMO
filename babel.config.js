@@ -2,7 +2,9 @@ module.exports = function (api) {
   api.cache(false);
 
   if (process.env["ENV"] === "prod") {
-    //plugins.push(...);
+    plugins.push([
+      "transform-remove-console"
+    ]);
   }
 
   const presets = ['module:metro-react-native-babel-preset'];

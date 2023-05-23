@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from "react";
-import { Image, StyleSheet, View, Text } from "react-native";
+import React, { useState } from "react";
+import { Image, StyleSheet, View, Text, PermissionsAndroid, Platform } from "react-native";
 import { ScrollView, TouchableOpacity } from "react-native-gesture-handler";
 import { useNavigation } from "@react-navigation/native";
 import { connect } from "react-redux";
@@ -8,7 +8,7 @@ import DocumentPicker, {
   isCancel,
   isInProgress,
 } from "react-native-document-picker";
-import { Colors, Theme } from "../styles/theme";
+import { Theme } from "../styles/theme";
 
 const uris = [
   "file:///android_asset/documents/demo.pdf",
@@ -35,6 +35,22 @@ const Home = (props) => {
   }
 
   async function selectFile() {
+    const granted = Platform.OS === "android"
+      ? await PermissionsAndroid.request(PermissionsAndroid.PERMISSIONS.WRITE_EXTERNAL_STORAGE, {
+        buttonNeutral: 'Ask Me Later',
+        buttonNegative: 'Cancel',
+        buttonPositive: 'OK',
+      })
+      : null;
+
+    const allowed = Platform.OS === "android"
+      ? await PermissionsAndroid.check(PermissionsAndroid.PERMISSIONS.WRITE_EXTERNAL_STORAGE)
+      : false;
+
+    if(!allowed && granted !== PermissionsAndroid.RESULTS.GRANTED) {
+      return;
+    }
+
     try {
       const pickerResult = await DocumentPicker.pickSingle({
         presentationStyle: "fullScreen",
@@ -92,10 +108,7 @@ const Home = (props) => {
       </View>
 
       <View style={styles.appButtonContainer}>
-        <TouchableOpacity
-          onPress={onClick}
-          style={styles.appButton}
-        >
+        <TouchableOpacity onPress={onClick} style={styles.appButton}>
           <Text style={styles.appButtonText}>Reset to sample</Text>
         </TouchableOpacity>
       </View>
