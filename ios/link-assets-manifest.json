@@ -1,0 +1,33 @@
+{
+  "migIndex": 1,
+  "data": [
+    {
+      "path": "src/assets/documents/demo.pdf",
+      "sha1": "0f46bd1dab2aab12c568f78b833121d75e98981f"
+    },
+    {
+      "path": "src/assets/documents/sample.pdf",
+      "sha1": "5b971dadc83b478e500952a706f28ef91ef63816"
+    },
+    {
+      "path": "src/assets/images/demo.jpg",
+      "sha1": "7006a7efb3dab3831cda405a472dc608689d1634"
+    },
+    {
+      "path": "src/assets/images/demopdf.jpg",
+      "sha1": "c37deaf3fdbaf7be8d1b2913a18a879bbbb27a10"
+    },
+    {
+      "path": "src/assets/images/demopng.png",
+      "sha1": "fe8023ae35540f0bfe8978b325d057d150614b12"
+    },
+    {
+      "path": "src/assets/images/demopng_banner.jpg",
+      "sha1": "e145f91c8392fe252fa2bfc9468fbad74f38ebb7"
+    },
+    {
+      "path": "src/assets/images/tvbanner.png",
+      "sha1": "ce76d5735c540223e560b0e23a133a6754b1ed25"
+    }
+  ]
+}

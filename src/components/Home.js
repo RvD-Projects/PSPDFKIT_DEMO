@@ -13,7 +13,7 @@ import { Theme } from "../styles/theme";
 const uris = [
   "file:///android_asset/documents/demo.pdf",
   "file:///android_asset/images/demo.jpg",
-  "file:///android_asset/images/demo-png.png",
+  "file:///android_asset/images/demopng.png",
 ];
 
 const Home = (props) => {
@@ -76,7 +76,7 @@ const Home = (props) => {
         onPress={() => onClick(uris[0])}
       >
         <Image
-          source={{ uri: "asset:/images/demo-pdf.jpg" }}
+          source={{ uri: "asset:/images/demopdf.jpg" }}
           style={{ width: "100%", height: 150 }}
         />
       </TouchableOpacity>
@@ -96,7 +96,7 @@ const Home = (props) => {
         onPress={() => onClick(uris[2])}
       >
         <Image
-          source={{ uri: "asset:/images/demo-png.jpg" }}
+          source={{ uri: "asset:/images/demopng_banner.jpg" }}
           style={{ width: "100%", height: 150 }}
         />
       </TouchableOpacity>
@@ -120,4 +120,4 @@ const styles = StyleSheet.create({
   ...Theme,
 });
 
-export default connect(null)(Home);
+export default Home;

@@ -1,11 +1,12 @@
+import PropTypes from 'prop-types';
 import React, { createRef } from "react";
 import { StyleSheet, Alert, View } from "react-native";
-import PSPDFKitView from "react-native-pspdfkit";
 import { useNavigation } from "@react-navigation/native";
 import { connect } from "react-redux";
 import { Text } from "@rneui/themed";
 import { Theme } from "../styles/theme";
 import { TouchableOpacity } from "react-native-gesture-handler";
+//import PSPDFKitView from "react-native-pspdfkit";
 
 function Pdfviewer(props) {
   const { selectedUri } = props;
@@ -54,7 +55,7 @@ function Pdfviewer(props) {
         </TouchableOpacity>
       </View>
 
-      <PSPDFKitView
+      {/* <PSPDFKitView
         ref={viewerRef}
         fragmentTag="PDF1"
         document={usedUri}
@@ -69,7 +70,7 @@ function Pdfviewer(props) {
         onDataReturned={(e) => onViewerDataReturn(e)}
         onStateChanged={(e) => onViewerStateChange(e)}
         onAnnotationsChanged={(e) => onViewerAnnotChange(e)}
-      />
+      /> */}
     </View>
   );
 }
@@ -77,6 +78,10 @@ function Pdfviewer(props) {
 const styles = StyleSheet.create({
   ...Theme,
 });
+
+Pdfviewer.propTypes = {
+  selectedUri: PropTypes.string
+};
 
 const mapStateToProps = (state, props) => {
   return { selectedUri: props.route.params?.selectedUri };

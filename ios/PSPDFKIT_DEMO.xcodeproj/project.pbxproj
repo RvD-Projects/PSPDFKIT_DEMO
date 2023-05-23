@@ -14,6 +14,13 @@
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		7699B88040F8A987B510C191 /* libPods-PSPDFKIT_DEMO-PSPDFKIT_DEMOTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 19F6CBCC0A4E27FBF8BF4A61 /* libPods-PSPDFKIT_DEMO-PSPDFKIT_DEMOTests.a */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
+		A177BBC2396142DD829E9DF5 /* demo.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 126997F9BD0E4D2FAE623574 /* demo.pdf */; };
+		1F4A41CFB689467C8CACD8A6 /* sample.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 362CCCC0700741A0866312BC /* sample.pdf */; };
+		FE9919D959FA40C5ABF5A63B /* demo.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C3AB085FB7B04090BD9DF49E /* demo.jpg */; };
+		D966F292A783499E809AEA0C /* demopdf.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 97E6BD9ABEF249208B14FE53 /* demopdf.jpg */; };
+		F7D15B02A4EE4E9D92799155 /* demopng.png in Resources */ = {isa = PBXBuildFile; fileRef = F063C6C6BC2D446EA5BD79D3 /* demopng.png */; };
+		30D86BC26FA342E082A364F0 /* demopng_banner.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 8729C770135A4C86AA0A038C /* demopng_banner.jpg */; };
+		4576A5B176BB4F83942327D2 /* tvbanner.png in Resources */ = {isa = PBXBuildFile; fileRef = 42C46CF8EAD741BA9B5381CF /* tvbanner.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +51,13 @@
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = PSPDFKIT_DEMO/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		89C6BE57DB24E9ADA2F236DE /* Pods-PSPDFKIT_DEMO-PSPDFKIT_DEMOTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PSPDFKIT_DEMO-PSPDFKIT_DEMOTests.release.xcconfig"; path = "Target Support Files/Pods-PSPDFKIT_DEMO-PSPDFKIT_DEMOTests/Pods-PSPDFKIT_DEMO-PSPDFKIT_DEMOTests.release.xcconfig"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
+		126997F9BD0E4D2FAE623574 /* demo.pdf */ = {isa = PBXFileReference; name = "demo.pdf"; path = "../src/assets/documents/demo.pdf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		362CCCC0700741A0866312BC /* sample.pdf */ = {isa = PBXFileReference; name = "sample.pdf"; path = "../src/assets/documents/sample.pdf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		C3AB085FB7B04090BD9DF49E /* demo.jpg */ = {isa = PBXFileReference; name = "demo.jpg"; path = "../src/assets/images/demo.jpg"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		97E6BD9ABEF249208B14FE53 /* demopdf.jpg */ = {isa = PBXFileReference; name = "demopdf.jpg"; path = "../src/assets/images/demopdf.jpg"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		F063C6C6BC2D446EA5BD79D3 /* demopng.png */ = {isa = PBXFileReference; name = "demopng.png"; path = "../src/assets/images/demopng.png"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		8729C770135A4C86AA0A038C /* demopng_banner.jpg */ = {isa = PBXFileReference; name = "demopng_banner.jpg"; path = "../src/assets/images/demopng_banner.jpg"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		42C46CF8EAD741BA9B5381CF /* tvbanner.png */ = {isa = PBXFileReference; name = "tvbanner.png"; path = "../src/assets/images/tvbanner.png"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -122,6 +136,7 @@
 				83CBBA001A601CBA00E9B192 /* Products */,
 				2D16E6871FA4F8E400B85C8A /* Frameworks */,
 				BBD78D7AC51CEA395F1C20DB /* Pods */,
+				D29594E548524318BA4B3082 /* Resources */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -147,6 +162,21 @@
 			);
 			path = Pods;
 			sourceTree = "<group>";
+		};
+		D29594E548524318BA4B3082 /* Resources */ = {
+			isa = "PBXGroup";
+			children = (
+				126997F9BD0E4D2FAE623574 /* demo.pdf */,
+				362CCCC0700741A0866312BC /* sample.pdf */,
+				C3AB085FB7B04090BD9DF49E /* demo.jpg */,
+				97E6BD9ABEF249208B14FE53 /* demopdf.jpg */,
+				F063C6C6BC2D446EA5BD79D3 /* demopng.png */,
+				8729C770135A4C86AA0A038C /* demopng_banner.jpg */,
+				42C46CF8EAD741BA9B5381CF /* tvbanner.png */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+			path = "";
 		};
 /* End PBXGroup section */
 
@@ -244,6 +274,13 @@
 			files = (
 				81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
+				A177BBC2396142DD829E9DF5 /* demo.pdf in Resources */,
+				1F4A41CFB689467C8CACD8A6 /* sample.pdf in Resources */,
+				FE9919D959FA40C5ABF5A63B /* demo.jpg in Resources */,
+				D966F292A783499E809AEA0C /* demopdf.jpg in Resources */,
+				F7D15B02A4EE4E9D92799155 /* demopng.png in Resources */,
+				30D86BC26FA342E082A364F0 /* demopng_banner.jpg in Resources */,
+				4576A5B176BB4F83942327D2 /* tvbanner.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
